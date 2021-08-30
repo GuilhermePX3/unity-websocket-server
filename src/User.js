@@ -3,12 +3,6 @@ const { rooms } = require("./Handlers");
 
 module.exports = class User {
   //0
-  id = -1;
-  room = -1;
-
-  myObjects = [];
-  socket = undefined;
-  packet = new Packet();
 
   constructor(socket, id) {
     this.id = id.GenerateId();
@@ -20,6 +14,11 @@ module.exports = class User {
 
     this.socket = socket;
     this.Retrieve();
+
+    this.room = -1;
+    this.myObjects = [];
+    this.socket = undefined;
+    this.packet = new Packet();
   }
 
   Retrieve() {
