@@ -2,6 +2,7 @@ const Packet = require("../src/Packet");
 const { rooms } = require("./Handlers");
 
 module.exports = class User {
+  //0
   id = -1;
   room = -1;
 
