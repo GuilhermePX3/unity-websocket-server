@@ -1,8 +1,8 @@
 module.exports = class Packet {
-  buffer = { type: "Buffer", data: [] };
-  pos = 0;
-
   constructor(bytes = undefined) {
+    this.buffer = { type: "Buffer", data: [] };
+    this.pos = 0;
+
     if (bytes !== undefined)
       bytes.forEach((element) => {
         this.buffer.push(element);

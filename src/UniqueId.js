@@ -1,6 +1,8 @@
 module.exports = class UniqueID {
-  currentId = 1;
-  ids = [0];
+  constructor() {
+    this.currentId = 1;
+    this.ids = [0];
+  }
 
   GenerateId() {
     this.currentId = -1;
