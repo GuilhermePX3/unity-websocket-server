@@ -6,6 +6,10 @@ module.exports = class User {
 
   constructor(socket, id) {
     this.id = id.GenerateId();
+    this.room = -1;
+    this.myObjects = [];
+    this.socket = undefined;
+    this.packet = new Packet();
 
     console.log("USER > " + id.length + " " + this.id);
 
@@ -14,11 +18,6 @@ module.exports = class User {
 
     this.socket = socket;
     this.Retrieve();
-
-    this.room = -1;
-    this.myObjects = [];
-    this.socket = undefined;
-    this.packet = new Packet();
   }
 
   Retrieve() {
