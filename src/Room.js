@@ -1,10 +1,12 @@
 const UniqueID = require("./UniqueId");
 
 module.exports = class Room {
-  users = [];
-  objects = [];
-  manager = new UniqueID();
-  maxPlayers = 6;
+  constructor() {
+    this.users = [];
+    this.objects = [];
+    this.manager = new UniqueID();
+    this.maxPlayers = 6;
+  }
 
   AddObject(object) {
     this.objects.push(object);
