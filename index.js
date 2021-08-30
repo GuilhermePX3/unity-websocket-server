@@ -8,6 +8,8 @@ const UniqueID = require("./src/UniqueId");
 
 const idManager = new UniqueID();
 
+console.log("index cfx");
+
 //#endregion
 
 wss.on("connection", function (ws) {
@@ -22,3 +24,5 @@ wss.on("connection", function (ws) {
     user.Disconnect();
   });
 });
+
+//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
