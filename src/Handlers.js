@@ -125,8 +125,8 @@ function Handle(id, user, idManager) {
   } else {
     switch (id) {
       case 1000:
-        user.Disconnect();
         idManager.RemoveId(user.id);
+        user.Disconnect();
         break;
     }
   }

@@ -21,6 +21,7 @@ wss.on("connection", function (ws) {
   });
 
   ws.on("close", function incoming(message) {
+    idManager.RemoveId(user.id);
     user.Disconnect();
   });
 });

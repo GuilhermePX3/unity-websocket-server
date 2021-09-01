@@ -54,31 +54,29 @@ module.exports = class User {
   }
 
   LeftRoom() {
-    if (rooms[this.room] === undefined) {
-      console.log("Room Null");
-      return;
+    if (this.room !== -1 && rooms[this.room] !== undefined) {
+      var userIndex = -1;
+
+      this.myObjects.forEach((id) => {
+        rooms[this.room].DeleteObject(id);
+        this.packet.Erase();
+        this.packet.Write(7);
+        this.packet.Write(id);
+
+        this.Broadcast();
+      });
+
+      rooms[this.room].users.forEach((element, index) => {
+        if (element.id === this.id) {
+          userIndex = index;
+          return;
+        }
+      });
+
+      rooms[this.room].users.splice(userIndex, 1);
+
+      this.room = -1;
     }
-
-    var userIndex = -1;
-
-    this.myObjects.forEach((id) => {
-      rooms[this.room].DeleteObject(id);
-      this.packet.Erase();
-      this.packet.Write(7);
-      this.packet.Write(id);
-
-      this.Broadcast();
-    });
-
-    rooms[this.room].users.forEach((element, index) => {
-      if (element.id === this.id) {
-        userIndex = index;
-      }
-    });
-
-    rooms[this.room].users.splice(userIndex, 1);
-
-    this.room = -1;
   }
 
   Disconnect() {
